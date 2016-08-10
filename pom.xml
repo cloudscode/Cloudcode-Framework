@@ -724,11 +724,11 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.zhibo</groupId>
 			<artifactId>Douban4jOAuth2</artifactId>
 			<version>1.0-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 		<!-- <dependency> <groupId>com.zhibo</groupId> <artifactId>Douban4jOAuth2</artifactId> 
 			<version>1.0-SNAPSHOT</version> <scope>system</scope> <systemPath>${basedir}/src/main/resources/lib/Douban4jOAuth2.jar</systemPath> 
 			</dependency> -->
@@ -788,4 +788,16 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>lawyee-maven</id>
+			<name>Lawyee Maven Repository</name>
+			<url>http://127.0.0.1:8081/nexus/content/groups/public/</url>
+		</snapshotRepository>
+		<repository>
+			<id>lawyee-maven</id>
+			<name>Lawyee Maven Repository</name>
+			<url>http://127.0.0.1:8081/nexus/content/groups/public/</url>
+		</repository>
+	</distributionManagement>
 </project>
