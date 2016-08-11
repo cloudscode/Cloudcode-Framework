@@ -1,12 +1,11 @@
 package com.cloudcode.framework.dao.impl;
 
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.hibernate.Cache;
 import org.hibernate.Criteria;
+import org.hibernate.annotations.Cache;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -36,7 +35,7 @@ public class BaseTreeNodeDaoImpl<T extends BaseTreeNodeModelObject<T>> extends B
 			}
 		}
 		//order(class1, criteria);
-		if (class1.isAnnotationPresent((Class<? extends Annotation>) Cache.class)) {
+		if (class1.isAnnotationPresent(Cache.class)) {
 			criteria.setCacheable(true);
 		}
 		return criteria.list();

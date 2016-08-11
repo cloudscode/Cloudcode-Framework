@@ -4,7 +4,7 @@
 
 	<groupId>com.cloudcode</groupId>
 	<artifactId>Cloudcode-Framework</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>Cloudcode-Framework</name>
@@ -19,15 +19,16 @@
 		<hibernate.version>4.3.11.Final</hibernate.version>
 	</properties>
 	<build>
-		<plugins>
+		<plugins>	
 			<plugin>
-				   <artifactId>maven-compiler-plugin</artifactId>  
-			       <version>3.1</version>  
-			       <configuration>  
-			         <source>1.6</source>  
-			         <target>1.6</target>  
-			       </configuration> 
-			</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>			 			
 		</plugins>
 	</build>
 	<dependencies>
@@ -788,15 +789,15 @@
 		</dependencies>
 	</dependencyManagement>
 	<distributionManagement>
-		<snapshotRepository>
+		<!-- <snapshotRepository>
 			<id>lawyee-maven</id>
 			<name>Lawyee Maven Repository</name>
-			<url>http://127.0.0.1:8081/nexus/content/groups/public/</url>
-		</snapshotRepository>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository> -->
 		<repository>
 			<id>lawyee-maven</id>
 			<name>Lawyee Maven Repository</name>
-			<url>http://127.0.0.1:8081/nexus/content/groups/public/</url>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/releases/</url>
 		</repository>
 	</distributionManagement>
 </project>

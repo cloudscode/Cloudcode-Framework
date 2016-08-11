@@ -19,7 +19,7 @@ public abstract class BaseModelObjectServiceSupport<T extends ModelObject>  {
 
 	@Bean(name="commonDao")
 	public ModelObjectDao<T> generateCommonDao(){
-		return new BaseDaoImpl<T>((Class<T>) Object.class);
+		return new BaseDaoImpl<T>((Class<T>) ModelObject.class);
 	}
 	@Resource(name="commonDao")	
 	ModelObjectDao<T> commonDao;

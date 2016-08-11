@@ -12,13 +12,15 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import net.sf.cglib.beans.BeanMap;
+
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.Cache;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.Cache;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
@@ -43,8 +45,6 @@ import com.cloudcode.framework.utils.ModelObjectUtils;
 import com.cloudcode.framework.utils.PageRange;
 import com.cloudcode.framework.utils.PaginationSupport;
 import com.cloudcode.framework.utils.UUID;
-
-import net.sf.cglib.beans.BeanMap;
 
 @Repository
 public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport implements ModelObjectDao<T>{
@@ -256,12 +256,13 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 		this.getSession().saveOrUpdate(entity);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<T> loadAll() {
 		Criteria criteria = this.getSession().createCriteria(
 				this.getEntityClass());
 		// order(entityClass, criteria);
 		if (entityClass
-				.isAnnotationPresent((Class<? extends Annotation>) Cache.class)) {
+				.isAnnotationPresent(Cache.class)) {
 			criteria.setCacheable(true);
 		}
 		return criteria.list();
@@ -271,7 +272,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 	public List<T> loadAll(Criteria criteria) {
 
 		// if (entityClass
-		// .isAnnotationPresent((Class<? extends Annotation>) Cache.class)) {
+		// .isAnnotationPresent(Cache.class)) {
 		// criteria.setCacheable(true);
 		// }
 		return criteria.list();
@@ -295,8 +296,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 		query.setProperties(entity);
 		query.setFirstResult(pageRange.getStart());
 		query.setMaxResults(pageRange.getRows());
-		if (entity.getClass().isAnnotationPresent(
-				(Class<? extends Annotation>) Cache.class)) {
+		if (entity.getClass().isAnnotationPresent(Cache.class)) {
 			query.setCacheable(true);
 		}
 		List<T> items = query.list();
@@ -305,8 +305,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 				"select count(o) from " + entity.getClass().getName() + " o ");
 		// 设置HQL语句参数
 		query.setProperties(entity);
-		if (entity.getClass().isAnnotationPresent(
-				(Class<? extends Annotation>) Cache.class)) {
+		if (entity.getClass().isAnnotationPresent(Cache.class)) {
 			query.setCacheable(true);
 		}
 		pageData.setPage(pageRange.getPage());
@@ -387,7 +386,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 		}
 		// order(class1, criteria);
 		if (class1
-				.isAnnotationPresent((Class<? extends Annotation>) Cache.class)) {
+				.isAnnotationPresent(Cache.class)) {
 			criteria.setCacheable(true);
 			criteriaCount.setCacheable(true);
 		}
@@ -418,7 +417,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 				.add(criterion);
 		// order(class1, criteria);
 		if (class1
-				.isAnnotationPresent((Class<? extends Annotation>) Cache.class)) {
+				.isAnnotationPresent(Cache.class)) {
 			criteria.setCacheable(true);
 		}
 		return criteria.list();
@@ -436,8 +435,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 
 	public List<T> queryList(String hql, T entity) {
 		Query query = this.getSession().createQuery(hql);
-		if (entity.getClass().isAnnotationPresent(
-				(Class<? extends Annotation>) Cache.class)) {
+		if (entity.getClass().isAnnotationPresent(Cache.class)) {
 			query.setCacheable(true);
 		}
 		return query.setProperties(entity).list();
@@ -455,7 +453,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 		}
 		// order(class1, criteria);
 		if (class1
-				.isAnnotationPresent((Class<? extends Annotation>) Cache.class)) {
+				.isAnnotationPresent(Cache.class)) {
 			criteria.setCacheable(true);
 		}
 		return criteria.list();
@@ -471,7 +469,7 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 			}
 		}
 		if (class1
-				.isAnnotationPresent((Class<? extends Annotation>) Cache.class)) {
+				.isAnnotationPresent(Cache.class)) {
 			criteria.setCacheable(true);
 		}
 		return (T) criteria.uniqueResult();
