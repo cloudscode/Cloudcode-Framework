@@ -121,6 +121,8 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 
 	public Class<T> getEntityType() {
 		if (this.entityClass == null) {
+			getClass()
+			.getGenericSuperclass().getClass().getGenericSuperclass();
 			ParameterizedType pmType = (ParameterizedType) getClass()
 					.getGenericSuperclass();
 			this.entityClass = ((Class) pmType.getActualTypeArguments()[0]);
@@ -258,6 +260,9 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 
 	@SuppressWarnings("unchecked")
 	public List<T> loadAll() {
+		/*List<T> list = null;
+		list=(List<T>) getHibernateTemplate().findByCriteria(DetachedCriteria.forClass(getEntityType()));
+		return list;*/
 		Criteria criteria = this.getSession().createCriteria(
 				this.getEntityClass());
 		// order(entityClass, criteria);

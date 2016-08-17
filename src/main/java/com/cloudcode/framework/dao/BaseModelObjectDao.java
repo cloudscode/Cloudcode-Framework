@@ -10,5 +10,5 @@ public class BaseModelObjectDao<T extends BaseModelObject> extends
 		BaseDaoImpl<T> {
 	public Object create(T obj) {
 		return this.getSessionFactory().getCurrentSession().save(obj);
-	}
+	}	
 }
