@@ -9,9 +9,9 @@
 
 	<name>Cloudcode-Framework</name>
 	<url>http://maven.apache.org</url>
-	<properties>  
-	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
-	    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<cxf.version>3.1.5</cxf.version>
 		<spring.version>4.2.5.RELEASE</spring.version>
 		<springsecurity.version>4.1.0.RELEASE</springsecurity.version>
@@ -19,7 +19,7 @@
 		<hibernate.version>4.3.11.Final</hibernate.version>
 	</properties>
 	<build>
-		<plugins>	
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -28,7 +28,7 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
-			</plugin>			 			
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -724,11 +724,8 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>com.zhibo</groupId>
-			<artifactId>Douban4jOAuth2</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.zhibo</groupId> <artifactId>Douban4jOAuth2</artifactId> 
+			<version>1.0-SNAPSHOT</version> </dependency> -->
 		<!-- <dependency> <groupId>com.zhibo</groupId> <artifactId>Douban4jOAuth2</artifactId> 
 			<version>1.0-SNAPSHOT</version> <scope>system</scope> <systemPath>${basedir}/src/main/resources/lib/Douban4jOAuth2.jar</systemPath> 
 			</dependency> -->
@@ -773,10 +770,15 @@
 			<version>1.7.0</version>
 		</dependency>
 		<dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>2.6.6</version>
-        </dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.6.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.9.2.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -789,11 +791,8 @@
 		</dependencies>
 	</dependencyManagement>
 	<distributionManagement>
-		<!-- <snapshotRepository>
-			<id>lawyee-maven</id>
-			<name>Lawyee Maven Repository</name>
-			<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository> -->
+		<!-- <snapshotRepository> <id>lawyee-maven</id> <name>Lawyee Maven Repository</name> 
+			<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots</url> </snapshotRepository> -->
 		<repository>
 			<id>lawyee-maven</id>
 			<name>Lawyee Maven Repository</name>
