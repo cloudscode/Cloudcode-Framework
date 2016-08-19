@@ -4,8 +4,8 @@
 <script src="${request.getContextPath()}/static/jquery/ui/bootstrap/assets/js/vendor/bootstrap.js" type="text/javascript"></script>
 <script src="${request.getContextPath()}/static/jquery/ui/bootstrap/assets/js/vendor/holder.js" type="text/javascript"></script>
 <script src="${request.getContextPath()}/static/jquery/ui/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
-<!--<script src="${request.getContextPath()}/static/jquery/ui/bootstrap/assets/js/vendor/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>-->
-<script src="${request.getContextPath()}/static/jquery/framework/ajaxframework.js" type="text/javascript"></script>
+<!--<script src="${request.getContextPath()}/static/jquery/ui/bootstrap/assets/js/vendor/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="${request.getContextPath()}/static/jquery/framework/ajaxframework.js" type="text/javascript"></script>-->
 <script src="${request.getContextPath()}/static/jquery/ztree/3.5.15/js/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
 <script  type="text/javascript">
 $.fn.serializeObject = function()
@@ -21,9 +21,11 @@ $.fn.serializeObject = function()
         } else {
             o[this.name] = this.value || '';
         }
-    });
+    });0
     return o;
 };
 </script>
 <script src="${request.getContextPath()}/static/jquery/msg/wHumanMsg.js" type="text/javascript"></script>
 <!--<script src="${request.getContextPath()}/static/jquery/ui/bootstrap/third-party/jquery.iframeDialog.js" type="text/javascript"></script>-->
+<script src="${request.getContextPath()}/static/jquery/framework/mainframe.js" type="text/javascript"></script>
+<script src="${request.getContextPath()}/static/jquery/framework/ccqueryui.js" type="text/javascript"></script>
