@@ -18,4 +18,20 @@ public class ToolsController extends CrudController<ModelObject> {
 		modelAndView.setViewName("classpath:com/cloudcode/framework/common/system/ftl/treeselect.ftl");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "picselect")
+	public ModelAndView picselect() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("classpath:com/cloudcode/framework/common/system/ftl/picselect.ftl");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "bigpicselect")
+	public ModelAndView bigpicselect() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("classpath:com/cloudcode/framework/common/system/ftl/bigpicselect.ftl");
+		return modelAndView;
+	}
+	
+	
 }
