@@ -65,7 +65,7 @@
 				$('#backbtn').disabled();
 			}
 		} else {
-			Request.request('system-ResourceFile-queryIconFilePathList', {
+			Request.request('../resourcefile/queryIconFilePathList', {
 				data : requestParams
 			}, function(dataList) {
 				pathList.push(requestParams.path);
