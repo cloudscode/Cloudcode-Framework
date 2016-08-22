@@ -44,3 +44,5 @@
 			width:100%!important;
 		}
 	</style>
+	<link rel="stylesheet" href="${request.getContextPath()}/static/jquery/validation/validationEngine.jquery.css">
+	<link rel="stylesheet" href="/cccommon/opensource/ckeditor/contents.css">
