@@ -120,4 +120,9 @@ public class DateFormat {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
 		return dateFormat.format(time);
 	}
+	public static String getDate(String format) {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+		return dateFormat.format(date);
+	}
 }
