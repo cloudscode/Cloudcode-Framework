@@ -34,3 +34,5 @@ $.fn.serializeObject = function()
 <script src="${request.getContextPath()}/static/jquery/framework/ccqueryui.js" type="text/javascript"></script>
 <script src="${request.getContextPath()}/static/jquery/validation/jquery.validationEngine-zh_CN.js" type="text/javascript"></script>
 <script src="${request.getContextPath()}/static/jquery/validation/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="/cccommon/opensource/jquery/layout/jquery.layout-latest.js" type="text/javascript"></script>
+<script src="/cccommon/opensource/jquery/requirejs/require.js" type="text/javascript"></script>
