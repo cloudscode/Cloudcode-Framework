@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.cloudcode.framework.model.ModelObject;
@@ -128,4 +129,7 @@ public interface ModelObjectDao<T extends ModelObject> {
 	public List<Map<String, Object>> queryForMapListBySQL(String sql, Object[] args);
 	public List<T> findByProperty(String propName, Object propValue);
 	public T findObject(String propName, Object propValue);
+	public List<Map<String, Object>> queryListBySql(String sql);
+	public List<Map<String, Object>> queryListBySql(String sql,Map<String, String> paramsMap);
+	public Map<String, Object> findEntity(String tableName, String id);
 }

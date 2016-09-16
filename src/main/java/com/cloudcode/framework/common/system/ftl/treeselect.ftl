@@ -3,8 +3,12 @@
 <head>
    <title>集团信息</title>
    <#include "classpath:com/cloudcode/framework/common/ftl/head.ftl"/>
-  <#include "classpath:com/cloudcode/framework/common/ftl/vendor.ftl"/>
+   <#include "classpath:com/cloudcode/framework/common/ftl/require.ftl"/>
    <script type="text/javascript">
+  var treeconfig = {};
+  var a={};
+  
+   requirejs(['main','tree','Dialog'], function( $ ,tree,Dialog) {
 	var params = $.cc.getIframeParams();
 	var span = params.span;
 	var hiddenField = params.hiddenField;
@@ -34,7 +38,7 @@
 		}
 	}
 
-	var treeconfig = {
+	 treeconfig = {
 		id : 'tree',
 		check : check,
 		url : url,
@@ -87,7 +91,7 @@
 			removeSelectUserList(treeNode.id);
 		}
 	}
-	function ok() {
+	a.ok =function() {
 		var id = "";
 		var text = "";
 		if (selectUserList.length > 0) {
@@ -108,12 +112,12 @@
 		} else {
 			params.onChange(selectUserList, baseValue != id);
 		}
-		Dialog.close();
+		Dialog.closethis();
 		textField.focus();
 	}
 
-	var ids = hiddenField.val();
-	var texts = textField.val();
+	var ids = "";//hiddenField.val();
+	var texts ="";// textField.val();
 	var idsarr = ids.split(",");
 	var textsarr = texts.split(",");
 	for (var i = 0; i < idsarr.length; i++) {
@@ -177,6 +181,11 @@
 			}
 		}
 	}
+	$("[xtype]").each(function() {
+		$(this).render('initRender');
+	});
+	
+});
 </script>
 </head>
 
@@ -192,8 +201,7 @@
 		<span id="userspan"></span>
 	</div>
 	<div xtype="toolbar">
-		<span xtype="button" config="text:'确定' , onClick : ok "></span>
+		<span xtype="button" config="text:'确定' , onClick : a.ok "></span>
 	</div>
-	
 </body>
 </html>

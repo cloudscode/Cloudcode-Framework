@@ -547,4 +547,20 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 	    Object entity = list.isEmpty() ? null : list.get(0);
 	    return (T)entity;
 	  }
+	  public List<Map<String, Object>> queryListBySql(String sql) {
+			return this.queryListBySql(sql, new HashMap<String, String>());
+		}
+	  public List<Map<String, Object>> queryListBySql(String sql,
+				Map<String, String> paramsMap) {
+			return (List<Map<String, Object>>) this.getSession()
+					.createSQLQuery(sql).setProperties(paramsMap)
+					.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP).list();
+		}
+	  public Map<String, Object> findEntity(String tableName, String id) {
+			return (Map<String, Object>) this.getSession()
+					.createSQLQuery("select * from " + tableName + " where id=?")
+					.setParameter(0, id)
+					.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP)
+					.uniqueResult();
+		}
 }

@@ -47,3 +47,4 @@
 	<link rel="stylesheet" href="${request.getContextPath()}/static/jquery/validation/validationEngine.jquery.css">
 	<link rel="stylesheet" href="/cccommon/opensource/ckeditor/contents.css">
 	<link rel="stylesheet" href="/cccommon/opensource/jquery/layout/layout-default-latest.css">
+	<link rel="stylesheet" href="${request.getContextPath()}/static/widgets/widgets.css">

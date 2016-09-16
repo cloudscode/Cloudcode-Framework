@@ -30,9 +30,9 @@ $.fn.serializeObject = function()
 <script src="/cccommon/opensource/ckeditor/ckeditor.js" type="text/javascript"></script>
 <script src="/cccommon/opensource/ckeditor/config.js" type="text/javascript"></script>
 <script src="/cccommon/opensource/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<#--
 <script src="${request.getContextPath()}/static/jquery/framework/mainframe.js" type="text/javascript"></script>
-<script src="${request.getContextPath()}/static/jquery/framework/ccqueryui.js" type="text/javascript"></script>
+<script src="${request.getContextPath()}/static/jquery/framework/ccqueryui.js" type="text/javascript"></script>-->
 <script src="${request.getContextPath()}/static/jquery/validation/jquery.validationEngine-zh_CN.js" type="text/javascript"></script>
 <script src="${request.getContextPath()}/static/jquery/validation/jquery.validationEngine.js" type="text/javascript"></script>
 <script src="/cccommon/opensource/jquery/layout/jquery.layout-latest.js" type="text/javascript"></script>
-<script src="/cccommon/opensource/jquery/requirejs/require.js" type="text/javascript"></script>
