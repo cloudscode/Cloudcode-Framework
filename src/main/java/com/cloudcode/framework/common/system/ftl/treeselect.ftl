@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>集团信息</title>
+   <title>请选择</title>
    <#include "classpath:com/cloudcode/framework/common/ftl/head.ftl"/>
    <#include "classpath:com/cloudcode/framework/common/ftl/require.ftl"/>
    <script type="text/javascript">
