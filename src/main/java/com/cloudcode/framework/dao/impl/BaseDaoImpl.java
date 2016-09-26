@@ -1,7 +1,6 @@
 package com.cloudcode.framework.dao.impl;
 
 import java.io.Serializable;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-
-import net.sf.cglib.beans.BeanMap;
 
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
@@ -45,6 +42,9 @@ import com.cloudcode.framework.utils.ModelObjectUtils;
 import com.cloudcode.framework.utils.PageRange;
 import com.cloudcode.framework.utils.PaginationSupport;
 import com.cloudcode.framework.utils.UUID;
+import com.cloudcode.framework.utils.dao.ParamInf;
+
+import net.sf.cglib.beans.BeanMap;
 
 @Repository
 public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport implements ModelObjectDao<T>{
@@ -571,4 +571,20 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 									+ " = :" + property)
 					.setParameter(property, param).executeUpdate();
 		}
+	  public List<T> queryList(Class<T> class1, ParamInf list) {
+			Criteria criteria = this.getSession().createCriteria(class1);
+			for (Object object : list) {
+				if (object instanceof Criterion) {
+					criteria.add((Criterion) object);
+				} else if (object instanceof Order) {
+					criteria.addOrder((Order) object);
+				}
+			}
+			//order(class1, criteria);
+			if (class1.isAnnotationPresent(Cache.class)) {
+				criteria.setCacheable(true);
+			}
+			return criteria.list();
+		}
+	  
 }

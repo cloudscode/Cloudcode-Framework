@@ -9,14 +9,12 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.transform.Transformers;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.cloudcode.framework.model.ModelObject;
 import com.cloudcode.framework.utils.PageRange;
 import com.cloudcode.framework.utils.PaginationSupport;
+import com.cloudcode.framework.utils.dao.ParamInf;
 
 public interface ModelObjectDao<T extends ModelObject> {
 	public JdbcTemplate getJdbcTemplate();
@@ -119,6 +117,7 @@ public interface ModelObjectDao<T extends ModelObject> {
 	
 	public List<T> queryList(Class<T> class1, Criterion criterion);
 	public List<T> queryList(Class<T> class1, List<Object> list);
+	public List<T> queryList(Class<T> class1, ParamInf condList );
 	public T findEntity(Class<T> class1, List<Object> list);
 	
 	public T findEntityByPK(Class entityClass, Serializable id);
