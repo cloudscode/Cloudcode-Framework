@@ -563,4 +563,12 @@ public class BaseDaoImpl<T extends ModelObject>  extends HibernateDaoSupport imp
 					.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP)
 					.uniqueResult();
 		}
+	  public int deleteEntity(Class<T> class1, String property, Object param) {
+			return sessionFactory
+					.getCurrentSession()
+					.createQuery(
+							"delete " + class1.getName() + " o where o." + property
+									+ " = :" + property)
+					.setParameter(property, param).executeUpdate();
+		}
 }

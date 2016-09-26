@@ -132,4 +132,5 @@ public interface ModelObjectDao<T extends ModelObject> {
 	public List<Map<String, Object>> queryListBySql(String sql);
 	public List<Map<String, Object>> queryListBySql(String sql,Map<String, String> paramsMap);
 	public Map<String, Object> findEntity(String tableName, String id);
+	public int deleteEntity(Class<T> class1, String property, Object param);
 }
