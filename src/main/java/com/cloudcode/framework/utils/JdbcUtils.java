@@ -1,5 +1,6 @@
 package com.cloudcode.framework.utils;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -12,8 +13,30 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.util.Assert;
 
 
-public abstract class JdbcUtils {
-
+public class JdbcUtils {
+	public JdbcUtils(){}
+	private static final JdbcUtils jdbc=new JdbcUtils();
+	public static JdbcUtils getInstance(){
+		return jdbc;
+	}
+	private static JdbcTemplate jdbcTemplate;
+	/**
+	 * 获取JdbcTemplate
+	 * getJdbcTemplate:(). <br/>	
+	 *
+	 * @author cloudscode   ljzhuanjiao@Gmail.com
+	 * @return JdbcTemplate
+	 * @since JDK 1.6
+	 */
+	public JdbcTemplate getJdbcTemplate(){
+		if(null ==jdbcTemplate){
+			jdbcTemplate =BeanFactoryHelper.getBeanFactory().getBean(JdbcTemplate.class);
+		}
+		return jdbcTemplate;
+	}
+	public static Connection getConnection() throws SQLException{
+		return jdbcTemplate.getDataSource().getConnection();
+	}
 	/**
 	 * @param jdbcTemplate
 	 *            the jdbcTemplate
