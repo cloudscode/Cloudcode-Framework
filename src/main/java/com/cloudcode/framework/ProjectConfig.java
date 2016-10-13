@@ -28,4 +28,8 @@ public class ProjectConfig {
    CacheManager globalCacheManager() {
      return new MapCacheManagerImpl();
    }
+  /* @Bean(name={"global.cacheManager"})
+   CacheManager globalEhCacheManager() {
+     return new EhCacheManagerImpl();
+   }*/
 }

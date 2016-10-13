@@ -16,7 +16,7 @@ import java.util.List;
 
 import org.springframework.util.ResourceUtils;
 
-public class EhCacheFactoryImpl implements CacheManager {
+public class EhCacheManagerImpl implements CacheManager {
 	private net.sf.ehcache.CacheManager cacheManager = getCacheManager();
 
 	public Cache<Object, Object> getCache(String name) {
